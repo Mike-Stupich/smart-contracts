@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "es6",                       
+    "module": "commonjs",                    
+    "allowJs": true,                         
+    "strict": true,                           
+    "strictNullChecks": true,                
+    "removeComments": true
+  },
+  "include": [
+    "contracts/*",
+    "test/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

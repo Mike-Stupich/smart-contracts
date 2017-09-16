@@ -1,17 +1,23 @@
 {
-  "compilerOptions": {
-    "target": "es6",                       
-    "module": "commonjs",                    
-    "allowJs": true,                         
-    "strict": true,                           
-    "strictNullChecks": true,                
-    "removeComments": true
-  },
-  "include": [
-    "contracts/*",
-    "test/*"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+	"compilerOptions": {
+		"target": "es6",
+		"module": "commonjs",
+    "moduleResolution": "node",
+    "types": [
+      "node"
+    ],
+		"sourceMap": true,
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"removeComments": true,
+		"strictNullChecks": true,
+		"skipLibCheck": true,
+		"noImplicitAny": false,
+		"noEmitOnError": false,
+		"watch": false,
+		"noImplicitReturns": true,
+		"typeRoots": ["node_modules/@types"],
+		"baseUrl": "."
+	},
+	"exclude": ["node_modules"]
 }

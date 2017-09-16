@@ -4,15 +4,28 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "mocha": "^3.5.3",
+    "node": "^8.3.0",
     "solc": "^0.4.16",
-    "tslint": "^5.7.0",
-    "typescript": "^2.5.2",
+    "truffle-contract": "^3.0.0",
     "web3": "^1.0.0-beta.18"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "tslint": "^5.7.0",
+    "typescript": "^2.5.2"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mike-Stupich/smart-contracts.git"
   },
   "author": "",
-  "license": "ISC"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Mike-Stupich/smart-contracts/issues"
+  },
+  "homepage": "https://github.com/Mike-Stupich/smart-contracts#readme"
 }

@@ -1,0 +1,182 @@
+{
+  "contract_name": "Escrow",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "seller",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getBalance",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_arbiter",
+          "type": "address"
+        }
+      ],
+      "name": "setArbiter",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "buyer",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "goodsReceived",
+          "type": "bool"
+        }
+      ],
+      "name": "releaseEscrow",
+      "outputs": [
+        {
+          "name": "success",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_seller",
+          "type": "address"
+        }
+      ],
+      "name": "setSeller",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "arbiter",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "name": "_seller",
+          "type": "address"
+        },
+        {
+          "name": "_arbiter",
+          "type": "address"
+        }
+      ],
+      "payable": true,
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "_address",
+          "type": "address"
+        }
+      ],
+      "name": "FundsReleased",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "_buyer",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "_seller",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "_arbiter",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "value",
+          "type": "uint256"
+        }
+      ],
+      "name": "ContractCreated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "_seller",
+          "type": "address"
+        }
+      ],
+      "name": "SellerSet",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "_arbiter",
+          "type": "address"
+        }
+      ],
+      "name": "ArbiterSet",
+      "type": "event"
+    }
+  ],
+  "unlinked_binary": "0x606060405260405160408061051c83398101604052808051919060200180519150505b60008054600160a060020a03338116600160a060020a0319928316179283905560018054868316908416179081905560028054868416941693909317928390557f8b4d3d17c21bac18e59006d59537476cded80f83824a8df5a18d5ec63db96eba93821692908216911634604051600160a060020a039485168152928416602084015292166040808301919091526060820192909252608001905180910390a15b50505b610447806100d56000396000f300606060405236156100675763ffffffff60e060020a60003504166308551a53811461006c57806312065fe01461009b5780631c9c088a146100c05780637150d8ae146100e157806379a357aa14610110578063e99d28661461013c578063fe25e00a1461015d575b600080fd5b341561007757600080fd5b61007f61018c565b604051600160a060020a03909116815260200160405180910390f35b34156100a657600080fd5b6100ae61019b565b60405190815260200160405180910390f35b34156100cb57600080fd5b6100df600160a060020a03600435166101aa565b005b34156100ec57600080fd5b61007f61023d565b604051600160a060020a03909116815260200160405180910390f35b341561011b57600080fd5b610128600435151561024c565b604051901515815260200160405180910390f35b341561014757600080fd5b6100df600160a060020a0360043516610379565b005b341561016857600080fd5b61007f61040c565b604051600160a060020a03909116815260200160405180910390f35b600154600160a060020a031681565b600160a060020a033016315b90565b60005433600160a060020a03908116911614806101d5575060025433600160a060020a039081169116145b15156101e057600080fd5b60028054600160a060020a031916600160a060020a0383161790557f9ff67193c9fe359ce094be60d43a9d35abc78247205d3af0a0d21583b691bc5281604051600160a060020a03909116815260200160405180910390a15b5b50565b600054600160a060020a031681565b60008054819033600160a060020a039081169116148061027a575060025433600160a060020a039081169116145b151561028557600080fd5b8261029b57600054600160a060020a03166102a8565b600154600160a060020a03165b905082156102f25780600160a060020a03166108fc30600160a060020a0316319081150290604051600060405180830381858888f1935050505015156102ed57600080fd5b61032f565b80600160a060020a03166108fc30600160a060020a0316319081150290604051600060405180830381858888f19350505050151561032f57600080fd5b5b7f3799216a76035eed25624e7931f56aa5c61e577072427e0598a2549ed8692dab81604051600160a060020a03909116815260200160405180910390a1600191505b5b50919050565b60005433600160a060020a03908116911614806103a4575060025433600160a060020a039081169116145b15156103af57600080fd5b60018054600160a060020a031916600160a060020a0383161790557f333be4836c678b45ff3bab0e47cc398f6c7346c2f9f7602f2e7478f3da1c0b1c81604051600160a060020a03909116815260200160405180910390a15b5b50565b600254600160a060020a0316815600a165627a7a72305820241ececbc200e95710b85297cf42036660985f920e9291808263d7be22d6edc90029",
+  "networks": {},
+  "schema_version": "0.0.5",
+  "updated_at": 1505537053592
+}

@@ -35,5 +35,30 @@ contract('Escrow Contract', (accounts) => {
         })
     })
 
+    it('should create a new contract and release funds back to the buyer', () => {
+        const buyerStartBalance = web3.fromWei(web3.eth.getBalance(accounts[0]),'ether').toNumber()
+        const sellerStartBalance = web3.fromWei(web3.eth.getBalance(accounts[1]),'ether').toNumber()
+        return Escrow.new(
+            accounts[1],
+            accounts[2],
+            {
+                from: accounts[0],
+                value: web3.toWei(1, 'ether'),
+                gas: 430000,
+                gasPrice: 18
+            }
+        )
+        .then((instance) => {
+            EscrowInstance = instance
+            instance.setSeller(accounts[1])
+        })
+        .then(() => {
+            EscrowInstance.releaseEscrow(false)
+        })
+        .then(() => {
+            const sellerBalance = web3.fromWei(web3.eth.getBalance(accounts[1]),'ether').toNumber()
+            assert.equal(sellerBalance, sellerStartBalance, 'seller balance should not have changed')
+        })
+    })
     
 })

@@ -42,7 +42,7 @@ contract Escrow {
     }
 
     // Function to release the funds when the goods are received
-    function releaseEscrow(bool goodsReceived) onlyAuthorized returns(bool success) {
+    function releaseEscrow(bool goodsReceived) onlyAuthorized {
         var addr = goodsReceived ? seller : buyer;
         if (goodsReceived) {
             addr.transfer(this.balance);
@@ -50,7 +50,9 @@ contract Escrow {
             addr.transfer(this.balance);
         }
         FundsReleased(addr);
-        return true;
+
+        // Destroy contract once escrow has been completed
+        selfdestruct(buyer);
     }
 
     function getBalance() constant returns (uint) {

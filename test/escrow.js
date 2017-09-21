@@ -5,7 +5,7 @@ contract('Escrow Contract', (accounts) => {
         return Escrow.new(accounts[1], accounts[2], {
             from: accounts[0],
             value: web3.toWei(1, 'ether'),
-            gas: 430000,
+            gas: 4300000,
             gasPrice: 18
         })
             .then((instance) => {
@@ -24,7 +24,6 @@ contract('Escrow Contract', (accounts) => {
         return EscrowInstance.releaseEscrow(true)
             .then(() => {
             const sellerBalance = web3.fromWei(web3.eth.getBalance(accounts[1]), 'ether').toNumber();
-            console.log(sellerBalance);
             assert.notEqual(sellerBalance, 100, 'seller balance should be greater than 100');
         });
     });
@@ -34,7 +33,7 @@ contract('Escrow Contract', (accounts) => {
         return Escrow.new(accounts[1], accounts[2], {
             from: accounts[0],
             value: web3.toWei(1, 'ether'),
-            gas: 430000,
+            gas: 4300000,
             gasPrice: 18
         })
             .then((instance) => {
